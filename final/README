@@ -1,25 +1,38 @@
-Wumpus Project
-Portland State University, Summer 2025
-CS 441/541 Artificial Intelligence: Group Project
+# Wumpus World AI Agents
 
-By:
-Carlos Santana, Sarang Parthasarathy,
-Abhi Patel, Michel Karam, Leior Varon
+**Portland State University · CS 441/541 Artificial Intelligence · Summer 2025**  
+**Team Members:** Carlos Santana, Sarang Parthasarathy, Abhi Patel, Michel Karam, Leior Varon  
 
-References
-Wikipedia contributors. (2025, February 4). Hunt the Wumpus. In Wikipedia.
-https://en.wikipedia.org/wiki/Hunt_the_Wumpus
+---
 
-Description:
-This program includes a comparison of different algorithms to solve a simplified
-version of the Wumpus Gridworld Problem
+## Project Overview
+This project compares different algorithms for solving a simplified version of the **Wumpus World Gridworld Problem**.  
+The goal was to design agents that can navigate the world, avoid hazards, and collect the gold.  
 
-In order to give a graphical representation of the Wumpus World, there is a folder
-of images ("Images") which must be in the execution directory.
-(the simplest way to do this is to run in the same directory as all the python
-scripts and the Images folder)
+Implemented agents include:  
+- **Simple Reflex Agent** (`Wumpus_World.py`)  
+- **A\* Search Agent** (`A_Star.py`)  
+- **Genetic Algorithm Agent** (`GA.py`) *(incomplete at submission)*  
+- **Q-Learning Agent** (`RL_Q_Learning.py`)  
 
-Required Python Packages:
+To visualize the environment, we included an **Images/** folder with icons used by `pygame`. Make sure it is in the same directory when running any script.  
+
+---
+
+## My Contribution
+I (Carlos Santana) primarily developed the **A\* Search Agent**, which:  
+- Uses Manhattan distance as a heuristic.  
+- Marks tiles as *safe* or *risky* based on percepts (breeze/stench).  
+- Assigns penalties (+3) to risky tiles, making the agent risk-aware but not risk-averse.  
+- Implements loop-prevention with recent history and backtrack penalties.  
+- Converts A\* paths into agent actions (turning, moving, grabbing, shooting).  
+
+This design allowed the A\* agent to balance safety and exploration while avoiding infinite loops.  
+
+---
+
+## Requirements
+Python 3.9+ with the following packages:
 random
 pygame
 time
@@ -27,25 +40,30 @@ os
 collections
 typing
 enum
-IPython (for use in colab)
+IPython
 copy
+functools
 reduce
 numpy
 matplotlib
-functools
 
-Usage:
-Each of the individual files tests a version of the algorithm.
--- To run all versions of the algorithm back to back run Wumpus_Main.py
+## Usage
+Run all agents in sequence:
+```bash
+python Wumpus_Main.py
 
--- Alternatively, each file can be run in a stand alone fashion to run its algorithm:
-Wumpus_World.py - Simple Reflex Agent
-A_Star.py - A\* Search Agent
-GA.py - Genetic Algorithm Agent
-(At time of submission the GA Agent is not learning correctly)
-RL_Q_Learning.py - Reinforced Learning Agent
+python A_Star.py          # A* Search Agent
+python RL_Q_Learning.py   # Reinforcement Learning Agent
+python GA.py              # Genetic Algorithm Agent
+python Wumpus_World.py    # Simple Reflex Agent
 
-In order to create a picture representation of the Wumpus World ensure that you are running
-in a directory that also includes the Images directory (r.g. the location of the .py files)
+Results
+The A* agent successfully solves boards, prioritizing safe paths and selectively entering risky areas.
+Loop guards prevent repeated cycles. The Q-Learning agent improves with training episodes.
+GA agent remained incomplete but exploratory code is included.
 
-Thank you!
+References
+Wikipedia contributors. (2025, February 4). Hunt the Wumpus. In Wikipedia.
+https://en.wikipedia.org/wiki/Hunt_the_Wumpus
+
+
