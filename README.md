@@ -20,8 +20,10 @@ This page links to a few projects that show what I can do.
 
 ## About Me
 - M.S. Computer Science (in progress), Portland State University  
-- Comfortable with Python and C++; learning full-stack web (Angular/.NET)  
-- I like clean READMEs, simple UIs, and shipping small improvements fast
+- Strong in **C++** and **Python**  
+- Some experience with **C#**  
+- Background in engineering and IT, now focusing on software development  
+- I enjoy building problem-solving projects (like search algorithms and agents), and I’m growing my portfolio step by step
 
 ## Contact
 - Email: nightsky4816@gmail.com  
